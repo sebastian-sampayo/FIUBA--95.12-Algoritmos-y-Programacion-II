@@ -1,0 +1,114 @@
+$ cat entradaASCII.txt 
+a
+0
+0
+0
+0
+
+
+$ valgrind --tool=memcheck --leak-check=full -v ./tp1 -i entradaASCII.txt 
+==2288== Memcheck, a memory error detector
+==2288== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==2288== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==2288== Command: ./tp1 -i entradaASCII.txt
+==2288== 
+--2288-- Valgrind options:
+--2288--    --tool=memcheck
+--2288--    --leak-check=full
+--2288--    -v
+--2288-- Contents of /proc/version:
+--2288--   Linux version 3.16.0-37-generic (buildd@roseapple) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #51~14.04.1-Ubuntu SMP Wed May 6 15:24:07 UTC 2015
+--2288-- Arch and hwcaps: X86, x86-mmxext-sse1-sse2
+--2288-- Page sizes: currently 4096, max supported 4096
+--2288-- Valgrind library directory: /usr/lib/valgrind
+--2288-- Reading syms from /lib/i386-linux-gnu/ld-2.19.so
+--2288--   Considering /lib/i386-linux-gnu/ld-2.19.so ..
+--2288--   .. CRC mismatch (computed 19686c0d wanted 131a893d)
+--2288--   Considering /usr/lib/debug/lib/i386-linux-gnu/ld-2.19.so ..
+--2288--   .. CRC is valid
+--2288-- Reading syms from /home/sebastian/Bitbucket/75.04-algoritmos-y-programaci-n-2/2015/TP1/source/tp1
+--2288-- Reading syms from /usr/lib/valgrind/memcheck-x86-linux
+--2288--   Considering /usr/lib/valgrind/memcheck-x86-linux ..
+--2288--   .. CRC mismatch (computed e09cad6a wanted c3463efc)
+--2288--    object doesn't have a symbol table
+--2288--    object doesn't have a dynamic symbol table
+--2288-- Scheduler: using generic scheduler lock implementation.
+--2288-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==2288== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-2288-by-sebastian-on-???
+==2288== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-2288-by-sebastian-on-???
+==2288== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-2288-by-sebastian-on-???
+==2288== 
+==2288== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==2288== don't want to do, unless you know exactly what you're doing,
+==2288== or are doing some strange experiment):
+==2288==   /usr/lib/valgrind/../../bin/vgdb --pid=2288 ...command...
+==2288== 
+==2288== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==2288==   /path/to/gdb ./tp1
+==2288== and then give GDB the following command
+==2288==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=2288
+==2288== --pid is optional if only one valgrind process is running
+==2288== 
+--2288-- REDIR: 0x4017ed0 (strlen) redirected to 0x38066872 (???)
+--2288-- REDIR: 0x4017ce0 (index) redirected to 0x3806684d (???)
+--2288-- Reading syms from /usr/lib/valgrind/vgpreload_core-x86-linux.so
+--2288--   Considering /usr/lib/valgrind/vgpreload_core-x86-linux.so ..
+--2288--   .. CRC mismatch (computed da218fa9 wanted d8f40358)
+--2288--    object doesn't have a symbol table
+--2288-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so
+--2288--   Considering /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so ..
+--2288--   .. CRC mismatch (computed f1cf8ee0 wanted 71765c70)
+--2288--    object doesn't have a symbol table
+==2288== WARNING: new redirection conflicts with existing -- ignoring it
+--2288--     old: 0x04017ed0 (strlen              ) R-> (0000.0) 0x38066872 ???
+--2288--     new: 0x04017ed0 (strlen              ) R-> (2007.0) 0x0402d480 strlen
+--2288-- Reading syms from /usr/lib/i386-linux-gnu/libstdc++.so.6.0.19
+--2288--   Considering /usr/lib/i386-linux-gnu/libstdc++.so.6.0.19 ..
+--2288--   .. CRC mismatch (computed 7200fb8f wanted ddc28d2a)
+--2288--    object doesn't have a symbol table
+--2288-- Reading syms from /lib/i386-linux-gnu/libm-2.19.so
+--2288--   Considering /lib/i386-linux-gnu/libm-2.19.so ..
+--2288--   .. CRC mismatch (computed e79387ba wanted 6c7b6053)
+--2288--   Considering /usr/lib/debug/lib/i386-linux-gnu/libm-2.19.so ..
+--2288--   .. CRC is valid
+--2288-- Reading syms from /lib/i386-linux-gnu/libgcc_s.so.1
+--2288--   Considering /lib/i386-linux-gnu/libgcc_s.so.1 ..
+--2288--   .. CRC mismatch (computed 4c38a520 wanted c3be947e)
+--2288--    object doesn't have a symbol table
+--2288-- Reading syms from /lib/i386-linux-gnu/libc-2.19.so
+--2288--   Considering /lib/i386-linux-gnu/libc-2.19.so ..
+--2288--   .. CRC mismatch (computed da700b2f wanted 551922c7)
+--2288--   Considering /usr/lib/debug/lib/i386-linux-gnu/libc-2.19.so ..
+--2288--   .. CRC is valid
+--2288-- REDIR: 0x4214de0 (strnlen) redirected to 0x4024580 (_vgnU_ifunc_wrapper)
+--2288-- REDIR: 0x4216d90 (strncasecmp) redirected to 0x4024580 (_vgnU_ifunc_wrapper)
+--2288-- REDIR: 0x421c710 (memrchr) redirected to 0x4024580 (_vgnU_ifunc_wrapper)
+--2288-- REDIR: 0x422f750 (wcslen) redirected to 0x4024580 (_vgnU_ifunc_wrapper)
+--2288-- REDIR: 0x4214f90 (__GI_strrchr) redirected to 0x402ce50 (__GI_strrchr)
+--2288-- REDIR: 0x4214d20 (__GI_strlen) redirected to 0x402d400 (__GI_strlen)
+--2288-- REDIR: 0x42164c0 (__GI_memcmp) redirected to 0x402ff90 (__GI_memcmp)
+--2288-- REDIR: 0x4214580 (strcmp) redirected to 0x4024580 (_vgnU_ifunc_wrapper)
+--2288-- REDIR: 0x42d3ad0 (__strcmp_ssse3) redirected to 0x402e5b0 (strcmp)
+--2288-- REDIR: 0x4214cd0 (strlen) redirected to 0x4024580 (_vgnU_ifunc_wrapper)
+--2288-- REDIR: 0x421ce70 (__strlen_sse2_bsf) redirected to 0x402d3e0 (strlen)
+--2288-- REDIR: 0x4097a20 (operator new(unsigned int)) redirected to 0x402a670 (operator new(unsigned int))
+--2288-- REDIR: 0x4216ef0 (memcpy) redirected to 0x4024580 (_vgnU_ifunc_wrapper)
+--2288-- REDIR: 0x42c74f0 (__memcpy_ssse3) redirected to 0x402eda0 (memcpy)
+--2288-- REDIR: 0x4216470 (bcmp) redirected to 0x4024580 (_vgnU_ifunc_wrapper)
+--2288-- REDIR: 0x42ddd30 (__memcmp_ssse3) redirected to 0x4030080 (bcmp)
+--2288-- REDIR: 0x40959c0 (operator delete(void*)) redirected to 0x402b7d0 (operator delete(void*))
+--2288-- REDIR: 0x42106b0 (malloc) redirected to 0x402a110 (malloc)
+--2288-- REDIR: 0x4215b60 (strstr) redirected to 0x4031460 (strstr)
+--2288-- REDIR: 0x4097b40 (operator new[](unsigned int)) redirected to 0x402ad90 (operator new[](unsigned int))
+Wrong input.
+--2288-- REDIR: 0x4095a10 (operator delete[](void*)) redirected to 0x402bcd0 (operator delete[](void*))
+--2288-- REDIR: 0x4210c60 (free) redirected to 0x402b370 (free)
+==2288== 
+==2288== HEAP SUMMARY:
+==2288==     in use at exit: 0 bytes in 0 blocks
+==2288==   total heap usage: 12 allocs, 12 frees, 8,742 bytes allocated
+==2288== 
+==2288== All heap blocks were freed -- no leaks are possible
+==2288== 
+==2288== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==2288== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

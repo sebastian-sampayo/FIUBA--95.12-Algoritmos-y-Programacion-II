@@ -1,0 +1,22 @@
+CC      = g++
+CCFLAGS  = -g -Wall -pedantic
+LDFLAGS  =
+OBJS = main.o
+PROGRAM_NAME = main.exe
+
+all: main
+#	@/bin/true
+
+main: $(OBJS)
+	$(CC) $(LDFLAGS) $(OBJS) -o $(PROGRAM_NAME)
+
+main.o: main.cc vector.h 
+	$(CC) $(CCFLAGS) -c main.cc
+
+
+# Implementación con plantillas:
+#vector.o: vector.h vector.cc 
+#	$(CC) $(CCFLAGS) -c vector.cc
+
+clean:
+	rm *.o

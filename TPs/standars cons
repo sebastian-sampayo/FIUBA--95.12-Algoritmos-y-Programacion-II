@@ -1,0 +1,21 @@
+Google Style
+https://google-styleguide.googlecode.com/svn/trunk/cppguide.html
+https://www.linkedin.com/pulse/20140503193653-3046051-why-google-style-guide-for-c-is-a-deal-breaker
+- No permite sobrecarga de operadores
+- No permite streams (cin, cout)
+- Todos los argumentos pasados por referencia deben ser const.
+- No permite parámetros por default
+- no permite double
+
+
+JSF
+- No permite uso de tipos básicos
+	exige hacer typedef con tipos de tamaño específico
+
+
+GCC
+https://gcc.gnu.org/codingconventions.html
+- Demasiado laxo/poco específico?
+
+
+1111111111111111111111111111111111111111111111111111111111111111111111111111111 <- 80 columnas
